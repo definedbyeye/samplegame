@@ -103,8 +103,10 @@ var Game = {
 
       topOffset = this.scale(position.y);
       leftOffset = this.scale(position.x);
-
     }
+
+    App.debug('offsets: ' + topOffset + ' by ' + leftOffset);
+
 
     $elem.css({
       marginTop: topOffset + 'px',
@@ -233,13 +235,13 @@ var App = {
 
       // todo if it is a device, wait for device ready
       //must happen after deviceready to be bound on devices
-      //var deviceType = (navigator.userAgent.match(/Chrome/i))  == "Chrome" ? "Chrome" : (navigator.userAgent.match(/iPad/i))  == "iPad" ? "iPad" : (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iPhone" : (navigator.userAgent.match(/Android/i)) == "Android" ? "Android" : (navigator.userAgent.match(/BlackBerry/i)) == "BlackBerry" ? "BlackBerry" : "null";
+      var deviceType = (navigator.userAgent.match(/Chrome/i))  == "Chrome" ? "Chrome" : (navigator.userAgent.match(/iPad/i))  == "iPad" ? "iPad" : (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iPhone" : (navigator.userAgent.match(/Android/i)) == "Android" ? "Android" : (navigator.userAgent.match(/BlackBerry/i)) == "BlackBerry" ? "BlackBerry" : "null";
 
-      //if(deviceType == 'Chrome'){
-        //$(document).on('ready', function() {Game.init();});
-      //} else {
-        $(document).on('deviceready', function() {App.debug('device ready'); /*Game.init();*/});
-      //}
+      if(deviceType == 'Chrome'){
+        $(document).on('ready', function() {Game.init();});
+      } else {
+        document.addEventListener('deviceready', function(){App.debug('device ready'); Game.init();}, false);
+      }
 
     },
 
