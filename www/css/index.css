@@ -1,0 +1,91 @@
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+  -webkit-touch-callout: none; /* prevent callout to copy image, etc when tap to hold */
+  -webkit-text-size-adjust: none; /* prevent webkit from resizing text to fit */
+  -webkit-user-select: none; /* prevent copy paste, to allow, change 'none' to 'text' */
+  background-color: lightsalmon;
+  font-family: 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.debug {
+  z-index: 1000;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  min-width: 300px;
+  height: 150px;
+  margin: 0 auto;
+  background: lightblue;
+  color: #333;
+}
+
+/* Portrait layout (default) */
+.viewport {
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  overflow: hidden;
+}
+
+.room, .layer {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  display: block;
+  position: absolute;
+}
+
+.layer {
+  left: 0;
+  top: 0;
+}
+
+
+
+/* HD Landscape layout */
+@media screen and (min-aspect-ratio: 1/1) and (min-width: 481px) and (min-height: 321px) {
+}
+
+/* HD2 Landscape layout */
+@media screen and (min-aspect-ratio: 1/1) and (min-width: 961px) and (min-height: 641px) {
+}
+
+
+@keyframes fade {
+  from {
+    opacity: 1.0;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1.0;
+  }
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 1.0;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1.0;
+  }
+}
+
+.blink {
+  animation: fade 3000ms infinite;
+  -webkit-animation: fade 3000ms infinite;
+}
