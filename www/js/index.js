@@ -37,7 +37,7 @@ var Game = {
 
     this.loadRoom('first');
 
-    App.debug('scale: ' + this.scaleRatio + ' display: ' + this.display);
+    //App.debug('scale: ' + this.scaleRatio + ' display: ' + this.display);
 
   },
 
@@ -118,6 +118,8 @@ var Game = {
     var $room = $('.room');
     var room = Game._rooms[id];
 
+    App.debug('loading room ' + id);
+
     //reset the room
     $room.empty();
 
@@ -130,6 +132,8 @@ var Game = {
     for(var i = 0; i < room.layers.length; i++){
       var $layer = $('<div class="layer">');
       var layer = room.layers[i];
+
+      App.debug('loading layer ' + i);
 
       this.resize($layer, layer.height, layer.width);
       this.position($layer, layer.position);
